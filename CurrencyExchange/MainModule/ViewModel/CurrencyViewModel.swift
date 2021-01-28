@@ -19,7 +19,6 @@ protocol CurrencyViewModelProtocol: class {
 
 final class CurrencyViewModel: CurrencyViewModelProtocol {
     var ratesDidChanges: ((Bool, Error?) -> Void)?
-    var ratesByDateDidChanges: ((Bool, Error?) -> Void)?
     
     var networkService: NetworkServiceProtocol!
     var rates: [CurrencyModel] = [] {

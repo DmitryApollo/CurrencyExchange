@@ -1,4 +1,3 @@
-
 //
 //  Model.swift
 //  CurrencyExchange
@@ -11,10 +10,6 @@ import Foundation
 
 struct CurrencyListByDateResponse: Codable {
     var rates: [String: [String : Double]]
-    
-    enum CodingKeys: String, CodingKey {
-        case rates
-    }
 }
 
 struct CurrencyDateModel {

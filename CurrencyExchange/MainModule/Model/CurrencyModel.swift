@@ -10,10 +10,6 @@ import Foundation
 
 struct CurrencyListResponse: Codable {
     var rates: [String : Double]
-    
-    enum CodingKeys: String, CodingKey {
-        case rates
-    }
 }
 
 struct CurrencyModel {

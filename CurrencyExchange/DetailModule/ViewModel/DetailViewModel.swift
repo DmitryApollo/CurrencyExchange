@@ -27,13 +27,12 @@ final class DetailViewModel: DetailViewModelProtocol {
         }
     }
     var currency: String
+    var ratesByDateDidChanges: ((Bool, Error?) -> Void)?
     
     init(currency: String, networkService: NetworkServiceProtocol) {
         self.currency = currency
         self.networkService = networkService
     }
-    
-    var ratesByDateDidChanges: ((Bool, Error?) -> Void)?
     
     func getHistoricalRates(startAt: String, endAt: String) {
             networkService.getHistoricalRates(startAt: startAt, endAt: endAt, forCurrency: currency) { [weak self] (result) in
@@ -41,7 +40,6 @@ final class DetailViewModel: DetailViewModelProtocol {
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let list):
-                        
                         var array: [CurrencyDateModel] = []
                         list?.forEach({ (key, value) in
                             if let currencyValue = value.values.first {
